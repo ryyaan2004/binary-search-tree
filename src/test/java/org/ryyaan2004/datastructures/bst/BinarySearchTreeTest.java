@@ -137,10 +137,32 @@ public class BinarySearchTreeTest {
 	@Test
 	public void findNodeSuccessor()
 	{
+		int findSuccessorFor = 2;
+		int successorValue = 4;
+		TreeNode nodeInQuestion = new TreeNode(findSuccessorFor);
+		BinarySearchTree bst = new BinarySearchTree();
+		bst.insertNodeWithValue(10);
+		bst.insertNodeWithValue(5);
+		bst.insertNodeWithValue(8);
+		bst.insertNode(nodeInQuestion);
+		bst.insertNodeWithValue(90);
+		bst.insertNodeWithValue(4);
+		Assert.assertEquals(bst.search(successorValue), bst.findSuccessor(findSuccessorFor));
 	}
 	
 	@Test
 	public void findNodePredecessor()
 	{
+		int findPredecessorFor = 8;
+		int predecessorValue = 5;
+		TreeNode nodeInQuestion = new TreeNode(findPredecessorFor);
+		BinarySearchTree bst = new BinarySearchTree();
+		bst.insertNodeWithValue(10);
+		bst.insertNodeWithValue(5);
+		bst.insertNodeWithValue(8);
+		bst.insertNode(nodeInQuestion);
+		bst.insertNodeWithValue(90);
+		bst.insertNodeWithValue(4);
+		Assert.assertEquals(bst.search(predecessorValue), bst.findPredecessor(findPredecessorFor));
 	}
 }

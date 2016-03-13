@@ -227,4 +227,49 @@ public class BinarySearchTree {
 			y.getLeft().setParent(y);
 		}
 	}
+	
+	TreeNode findSuccessor(int val)
+	{
+		return findSuccessor(search(val));
+	}
+	
+	/**
+	 * TREE-SUCCESSOR(x)
+	 * @param x
+	 * @return
+	 */
+	TreeNode findSuccessor(TreeNode x)
+	{
+		if ( x.getRight() != null )
+		{
+			return treeMinimum(x.getRight());
+		}
+		TreeNode y = x.getParent();
+		while ( y != null && x == y.getRight() )
+		{
+			x = y;
+			y = y.getParent();
+		}
+		return y;
+	}
+	
+	TreeNode findPredecessor(int val)
+	{
+		return findPredecessor(search(val));
+	}
+	
+	TreeNode findPredecessor(TreeNode x)
+	{
+		if ( x.getLeft() != null )
+		{
+			return treeMinimum(x.getLeft());
+		}
+		TreeNode y = x.getParent();
+		while ( y != null && x == y.getLeft() )
+		{
+			x = y;
+			y = y.getParent();
+		}
+		return y;
+	}
 }
