@@ -11,6 +11,19 @@ public class BinarySearchTreeTest {
 	@Test
 	public void inorderTreeWalk()
 	{
+		BinarySearchTree bst = new BinarySearchTree();
+		bst.insertNodeWithValue(10);
+		bst.insertNodeWithValue(9);
+		bst.insertNodeWithValue(12);
+		bst.insertNodeWithValue(5);
+		bst.insertNodeWithValue(4);
+		bst.insertNodeWithValue(6);
+		bst.insertNodeWithValue(11);
+		bst.insertNodeWithValue(13);
+		String treeWalk = bst.inOrderTreeWalk();
+		Assert.assertEquals( "The tree walk didn't print as expected: "
+						   , "4 5 6 9 10 11 12 13"
+						   , treeWalk );
 	}
 	
 	@Test

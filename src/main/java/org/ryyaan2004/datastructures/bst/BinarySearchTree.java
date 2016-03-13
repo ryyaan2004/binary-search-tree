@@ -137,4 +137,29 @@ public class BinarySearchTree {
 		}
 		return y;
 	}
+	
+	String inOrderTreeWalk()
+	{
+		String str = "";
+		str += inOrderTreeWalk(getRootNode());
+		str = str.trim();
+		return str;
+	}
+	
+	/**
+	 * INORDER-TREE-WALK(x) algorithm
+	 * @param x
+	 * @return
+	 */
+	private String inOrderTreeWalk(TreeNode x)
+	{
+		String str = "";
+		if ( x != null )
+		{
+			str += inOrderTreeWalk(x.getLeft());
+			str += x.getValue().toString() + " ";
+			str += inOrderTreeWalk(x.getRight());
+		}
+		return str;
+	}
 }
