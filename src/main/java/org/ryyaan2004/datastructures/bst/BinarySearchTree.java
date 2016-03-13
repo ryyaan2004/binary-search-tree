@@ -162,4 +162,69 @@ public class BinarySearchTree {
 		}
 		return str;
 	}
+	
+	/**
+	 * TRANSPLANT(T,u,v) algorithm, where T is replaced by this
+	 * @param u
+	 * @param v
+	 */
+	private void transplant(TreeNode u, TreeNode v)
+	{
+		if ( u.getParent() == null )
+		{ // if u is the root node, replace it with v
+			this.setRootNode(v);
+		}
+		else if ( u == u.getParent().getLeft() )
+		{ // if u is the left child, set v as the new left child
+			u.getParent().setLeft(v);
+		}
+		else
+		{ // or the right child
+			u.getParent().setRight(v);
+		}
+		if ( v != null )
+		{ // point v to u's parent
+			v.setParent(u.getParent());
+		}
+	}
+	
+	/**
+	 * Find a node by it's wrapped value and delete that jive sucka
+	 * @param valueToFindNodeFor
+	 */
+	void deleteNode(int valueToFindNodeFor)
+	{
+		deleteNode(search(valueToFindNodeFor));
+	}
+	
+	/**
+	 * TREE-DELETE(T,z) where T is replaced by this
+	 * 
+	 * Given a TreeNode, this method will delete it
+	 * @param z
+	 */
+	void deleteNode(TreeNode z)
+	{
+		if ( z.getLeft() == null )
+		{
+			transplant(z, z.getRight());
+		}
+		else if ( z.getRight() == null )
+		{
+			transplant(z, z.getLeft());
+		}
+		else
+		{
+			TreeNode y = treeMinimum(z.getRight());
+			if ( y.getParent() != z )
+			{
+				transplant(y, y.getRight());
+				y.setRight(z.getRight());
+				y.getRight().setParent(y);
+			}
+			transplant(z, y);
+			y.setLeft(z.getLeft());
+			y.getLeft().setParent(y);
+		}
+	}
 }

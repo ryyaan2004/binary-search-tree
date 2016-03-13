@@ -65,6 +65,18 @@ public class BinarySearchTreeTest {
 	@Test
 	public void deleteSingleNode()
 	{
+		int valueToDelete = 7;
+		TreeNode nodeToDelete = new TreeNode(valueToDelete);
+		BinarySearchTree bst = new BinarySearchTree();
+		bst.insertNodeWithValue(10);
+		bst.insertNodeWithValue(5);
+		bst.insertNodeWithValue(8);
+		bst.insertNode(nodeToDelete);
+		bst.insertNodeWithValue(2);
+		bst.insertNodeWithValue(90);
+		bst.insertNodeWithValue(1);
+		bst.deleteNode(nodeToDelete);
+		Assert.assertNull(bst.search(valueToDelete));
 	}
 	
 	@Test
