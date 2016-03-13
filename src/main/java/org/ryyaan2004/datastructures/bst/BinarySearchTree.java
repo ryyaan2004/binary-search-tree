@@ -75,4 +75,26 @@ public class BinarySearchTree {
 			y.setRight(z);
 		}
 	}
+	
+	TreeNode search(int valueToSearch)
+	{
+		return search(getRootNode(), valueToSearch);
+	}
+	
+	TreeNode search(TreeNode searchNode, int valueToSearch)
+	{
+		if ( searchNode == null || valueToSearch == searchNode.getValue() )
+		{
+			return searchNode;
+		}
+		
+		if ( valueToSearch < searchNode.getValue() )
+		{
+			return search(searchNode.getLeft(), valueToSearch);
+		}
+		else
+		{
+			return search(searchNode.getRight(), valueToSearch);
+		}
+	}
 }

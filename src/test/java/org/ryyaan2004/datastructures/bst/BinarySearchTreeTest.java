@@ -57,6 +57,22 @@ public class BinarySearchTreeTest {
 	@Test
 	public void treeSearch()
 	{
+		int valueToFind = 7;
+		TreeNode nodeToFind = new TreeNode(valueToFind);
+		BinarySearchTree bst = new BinarySearchTree();
+		bst.insertNodeWithValue(10);
+		bst.insertNodeWithValue(5);
+		bst.insertNodeWithValue(8);
+		bst.insertNode(nodeToFind);
+		bst.insertNodeWithValue(2);
+		bst.insertNodeWithValue(90);
+		bst.insertNodeWithValue(1);
+		Assert.assertEquals( "The node that was found was not expected: "
+						   , nodeToFind
+						   , bst.search(valueToFind) );
+
+		int valueNotInTree = 100;
+		Assert.assertNull(bst.search(valueNotInTree));
 	}
 	
 	@Test 
