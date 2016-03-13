@@ -108,8 +108,10 @@ public class TreeNode implements Comparable<TreeNode> {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("TreeNode [value=").append(this.value).append(", left=").append(this.left).append(", right=")
-				.append(this.right).append(", parent=").append(this.parent).append("]");
+		builder.append("TreeNode [value=").append(this.value.toString())
+		.append(", left=").append( this.left != null ? this.left.getValue().toString(): "NIL")
+		.append(", right=").append(this.right != null ? this.right.getValue().toString(): "NIL")
+		.append(", parent=").append(this.parent != null ? this.parent.getValue().toString(): "NIL").append("]");
 		return builder.toString();
 	}
 }
