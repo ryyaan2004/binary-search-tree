@@ -97,4 +97,44 @@ public class BinarySearchTree {
 			return search(searchNode.getRight(), valueToSearch);
 		}
 	}
+	
+	TreeNode getTreeMinimum()
+	{
+		return treeMinimum(getRootNode());
+	}
+	
+	/**
+	 * Recursive implementation of TREE-MINIMUM(x) algorithm
+	 * @param x
+	 * @return
+	 */
+	private TreeNode treeMinimum(TreeNode x)
+	{
+		TreeNode y = x;
+		if ( y.getLeft() != null )
+		{
+			y = treeMinimum(y.getLeft());
+		}
+		return y;
+	}
+	
+	TreeNode getTreeMaximum()
+	{
+		return treeMaximum(getRootNode());
+	}
+	
+	/**
+	 * Recursive implementation of TREE-MAXIMUM(x) algorithm
+	 * @param x
+	 * @return
+	 */
+	private TreeNode treeMaximum(TreeNode x)
+	{
+		TreeNode y = x;
+		if ( y.getRight() != null )
+		{
+			y = treeMaximum(y.getRight());
+		}
+		return y;
+	}
 }

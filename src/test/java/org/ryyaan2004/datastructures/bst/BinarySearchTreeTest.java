@@ -78,11 +78,35 @@ public class BinarySearchTreeTest {
 	@Test 
 	public void findTreeMinimum()
 	{
+		int minValue = 2;
+		TreeNode minNode = new TreeNode(minValue);
+		BinarySearchTree bst = new BinarySearchTree();
+		bst.insertNodeWithValue(10);
+		bst.insertNodeWithValue(5);
+		bst.insertNodeWithValue(8);
+		bst.insertNode(minNode);
+		bst.insertNodeWithValue(90);
+		bst.insertNodeWithValue(4);
+		Assert.assertEquals( "The returned node wasn't the expected minimum: "
+						   , minNode
+						   , bst.getTreeMinimum() );
 	}
 	
 	@Test
 	public void findTreeMaximum()
 	{
+		int maxValue = 100;
+		TreeNode maxNode = new TreeNode(maxValue);
+		BinarySearchTree bst = new BinarySearchTree();
+		bst.insertNodeWithValue(10);
+		bst.insertNodeWithValue(5);
+		bst.insertNodeWithValue(8);
+		bst.insertNode(maxNode);
+		bst.insertNodeWithValue(90);
+		bst.insertNodeWithValue(4);
+		Assert.assertEquals( "The returned node wasn't the expected maximum: "
+						   , maxNode
+						   , bst.getTreeMaximum() );
 	}
 	
 	@Test
